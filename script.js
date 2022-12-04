@@ -1,16 +1,20 @@
 //設定地圖中心座標和縮放比例
 var map = L.map("map", {
   center: [22.7317117, 120.28759],
-  zoom: 20
+  zoom: 15
 });
-var lc = L.control.locate().addTo(map);
+var lc = L.control
+  .locate({
+    keepCurrentZoomLevel: "true"
+  })
+  .addTo(map);
 lc.start();
+
 //載入 OpenStreetMap 地圖資訊
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-
 
 var xhr = new XMLHttpRequest();
 xhr.open(
@@ -25,7 +29,7 @@ xhr.onload = function () {
     //將藥局標記不同顏色的圖標
     var imageIcon = new L.Icon({
       iconUrl:
-        "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
+        "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
       shadowUrl:
         "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
       iconSize: [25, 41],
