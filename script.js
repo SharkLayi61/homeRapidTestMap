@@ -106,7 +106,6 @@ xhr.onload = function () {
         '">打開Google地圖</a>'
     );
 
-    //將圖標加入圖層
     markers.addLayer(mark);
   }
   map.addLayer(markers);
