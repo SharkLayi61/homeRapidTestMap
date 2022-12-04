@@ -1,7 +1,7 @@
 //設定地圖中心座標和縮放比例
 var map = L.map("map", {
   center: [22.7317117, 120.28759],
-  zoom: 15
+  zoom: 20
 });
 var lc = L.control.locate().addTo(map);
 lc.start();
