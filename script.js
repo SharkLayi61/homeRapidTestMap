@@ -3,9 +3,15 @@ var map = L.map("map", {
   center: [22.7317117, 120.28759],
   zoom: 15
 });
+
 var lc = L.control
   .locate({
-    keepCurrentZoomLevel: "true"
+    keepCurrentZoomLevel: "true",
+    strings: {
+      title: "顯示您目前的位置",
+      popup: "您目前的位置",
+      outsideMapBoundsMsg: "You seem located outside the boundaries of the map"
+    }
   })
   .addTo(map);
 lc.start();
