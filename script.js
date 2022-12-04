@@ -78,6 +78,7 @@ xhr.onload = function () {
       animate: true
     }).addTo(map);
     //設定藥局經緯度和 Popup 內容
+    var val = data[i].properties.name;
     var mark = L.marker(
       [data[i].geometry.coordinates[1], data[i].geometry.coordinates[0]],
       { icon: imageIcon }
@@ -100,7 +101,9 @@ xhr.onload = function () {
         '<p class="popup-updated_at">[最後更新時間] ' +
         data[i].properties.updated_at +
         "<p/>" +
-        '<input type="button" value="打開Google地圖" onclick="location.href="https://www.youtube.com/watch?v=xaOWXjuE6DI">'
+        '<a href="https://www.google.com.tw/maps/search/' +
+        val +
+        '">打開Google地圖</a>'
     );
 
     //將圖標加入圖層
